@@ -15,6 +15,8 @@
         nav { display: flex; justify-content: center; }
         nav a { color: #fff; margin: 0 1rem; text-decoration: none; font-weight: 500; }
         nav a:hover { text-decoration: underline; }
+        .about-research {    display: flex;    justify-content: space-between;    gap: 2rem;    flex-wrap: wrap; }
+        .about-box, .research-box {    flex: 1 1 45%;    background-color: #ffffff;   padding: 1rem;    box-shadow: 0 2px 4px rgba(0,0,0,0.1);    border-radius: 8px;}
         .container { width: 90%; max-width: 1000px; margin: 2rem auto; }
         .hero { text-align: center; padding: 2rem 0; }
         .hero img { width: 300px; height: 300px; border-radius: 0; object-fit: cover; margin-bottom: 1rem; }
@@ -49,21 +51,22 @@
             <p>Intern Student | Smart Infrastructure Lab (SIL) | Yonsei University</p>
         </section>
 
-        <!-- About -->
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <p>페이지 준비중.</p>
-        </section>
-
-        <!-- Research -->
-        <section id="research">
-            <h2 class="section-title">Research Interests</h2>
-            <ul>
-                <li>Smart Infrastructure</li>
-                <li>Computer Vision</li>
-                <li>Pattern Recognition</li>
-                <li>Signal Processing</li>
-            </ul>
+        <!-- About & Research (2-column layout) -->
+        <section class="about-research">
+            <div class="about-box">
+                <h2 class="section-title">About Me</h2>
+                <p>페이지 준비중.</p>
+            </div>
+        
+            <div class="research-box">
+                <h2 class="section-title">Research Interests</h2>
+                <ul>
+                    <li>Smart Infrastructure</li>
+                    <li>Computer Vision</li>
+                    <li>Pattern Recognition</li>
+                    <li>Signal Processing</li>
+                </ul>
+            </div>
         </section>
 
         <!-- Title works -->
