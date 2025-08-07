@@ -208,6 +208,7 @@ function createBibEntry(entry) {
   const info = document.createElement('div');
   info.className = 'info';
 
+  // Badge 처리
   if (entry.badges && Array.isArray(entry.badges)) {
     const badgeBox = document.createElement('div');
     badgeBox.className = 'badge-container';
@@ -215,6 +216,7 @@ function createBibEntry(entry) {
     info.appendChild(badgeBox);
   }
 
+  // 논문 정보 텍스트
   let authors = boldAuthor(entry.author || '');
   let title = boldModel(entry.title || '', entry.model);
   let line = `${authors}. <em>${title}</em>.`;
@@ -223,10 +225,15 @@ function createBibEntry(entry) {
   if (entry.year) line += ` (${entry.year})`;
   if (entry.note) line += `. ${entry.note}`;
   if (entry.doi) line += `. DOI: <a href="https://doi.org/${entry.doi}" target="_blank">${entry.doi}</a>`;
-  info.innerHTML += `<div>${line}</div>`;
+
+  // 안전하게 추가
+  const lineDiv = document.createElement('div');
+  lineDiv.innerHTML = line;
+  info.appendChild(lineDiv);
 
   container.appendChild(info);
 
+  // 우측: citation + project
   const rightBox = document.createElement('div');
   rightBox.style.display = 'flex';
   rightBox.style.flexDirection = 'row';
