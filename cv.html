@@ -5,7 +5,6 @@
   <title>Si-Heon Joo - CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bibtex-js@1.0.0/bibtex.min.js"></script>
   <style>
     body { font-family: 'Roboto', sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; margin: 0; }
     header, footer { background-color: #004D7C; color: white; padding: 1rem 0; text-align: center; }
@@ -67,17 +66,17 @@
 
   <section id="unpublished">
     <h2 class="section-title">Unpublished</h2>
-    <ul class="bib-list"></ul>
+    <ul class="bib-list" id="unpublished-list"></ul>
   </section>
 
   <section id="publications">
     <h2 class="section-title">Publications</h2>
-    <ul class="bib-list"></ul>
+    <ul class="bib-list" id="publications-list"></ul>
   </section>
 
   <section id="conferences">
     <h2 class="section-title">Conferences</h2>
-    <ul class="bib-list"></ul>
+    <ul class="bib-list" id="conferences-list"></ul>
   </section>
 
   <section id="contact">
@@ -133,21 +132,16 @@ function createBibEntry(entry) {
   return container;
 }
 
-fetch('publications.bib')
-  .then(res => res.text())
-  .then(data => {
-    const parser = new BibtexParser();
-    parser.setInput(data);
-    parser.bibtex();
-    const entries = parser.getEntries();
+fetch('publications.json')
+  .then(res => res.json())
+  .then(entries => {
+    for (const entry of entries) {
+      const type = (entry.type || '').toLowerCase();
+      let sectionId = 'publications-list';
+      if (type === 'unpublished') sectionId = 'unpublished-list';
+      else if (type === 'conference') sectionId = 'conferences-list';
 
-    for (const [key, entry] of Object.entries(entries)) {
-      const type = (entry.entryType || '').toLowerCase();
-      let sectionId = 'publications';
-      if (type === 'unpublished') sectionId = 'unpublished';
-      else if (type === 'conference') sectionId = 'conferences';
-
-      const el = document.querySelector(`#${sectionId} .bib-list`);
+      const el = document.getElementById(sectionId);
       if (el) el.appendChild(createBibEntry(entry));
     }
   });
