@@ -15,7 +15,7 @@
     .bib-entry { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
     .bib-entry .info { flex: 1; }
     .project-button { flex-shrink: 0; padding: 0.4rem 0.9rem; background-color: #004D7C; color: white; border-radius: 5px; text-decoration: none; font-weight: 500; }
-    .bib-list { list-style: square; padding-left: 0; }
+    .bib-list { list-style: square; padding-left: 1.2rem; }
     .bib-list li { margin-bottom: 1rem; }
     .about-research-container {
       display: flex;
@@ -25,7 +25,7 @@
       align-items: flex-start;
     }
     .about-box {
-      flex: 1; /* 남은 공간 모두 차지 */
+      flex: 1;
       min-width: 0;
       background-color: #fff;
       padding: 1.5rem;
@@ -34,7 +34,7 @@
       box-sizing: border-box;
     }
     .research-box {
-      flex: 0 0 auto; /* 내용 크기만큼만 차지 */
+      flex: 0 0 auto;
       background-color: #fff;
       padding: 1.5rem;
       border-radius: 8px;
@@ -48,7 +48,7 @@
 <header>
   <nav>
     <a href="index.html">Home</a>
-    <a href="cv.html">CV</a>
+    <a href="cv.html">About Me</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -125,6 +125,7 @@ function boldModel(text, model) {
 function createBibEntry(entry) {
   const container = document.createElement('li');
   container.classList.add('bib-entry');
+
   const info = document.createElement('div');
   info.className = 'info';
 
@@ -140,14 +141,30 @@ function createBibEntry(entry) {
   info.innerHTML = line;
   container.appendChild(info);
 
+  const rightBox = document.createElement('div');
+  rightBox.style.display = 'flex';
+  rightBox.style.flexDirection = 'row';
+  rightBox.style.alignItems = 'center';
+  rightBox.style.gap = '0.5rem';
+
+  if (entry.citation) {
+    const cite = document.createElement('span');
+    cite.textContent = `Cited by ${entry.citation}`;
+    cite.style.fontWeight = '500';
+    cite.style.color = '#555';
+    rightBox.appendChild(cite);
+  }
+
   if (entry.project) {
     const btn = document.createElement('a');
     btn.href = entry.project;
     btn.target = '_blank';
     btn.className = 'project-button';
     btn.innerText = 'Project Page';
-    container.appendChild(btn);
+    rightBox.appendChild(btn);
   }
+
+  container.appendChild(rightBox);
   return container;
 }
 
