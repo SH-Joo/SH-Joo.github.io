@@ -14,7 +14,7 @@
       margin: 0;
     }
     header, footer {
-      background-color: #192d6e;
+      background-color: #010e82;
       color: white;
       padding: 1rem 0;
       text-align: center;
@@ -144,9 +144,7 @@
 
   <section id="awards">
     <h2 class="section-title">Awards &amp; Honors</h2>
-    <ul>
-      <li><strong>Best Paper Award</strong> - <strong>Siheon Joo</strong>, Kyoungmin Lee, Stellar Choi, Haeun Jung, Seonggeon Bae. Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures, <em>International Conference on Small and Medium Business (ICSMB)</em>, Fukuoka, Japan (Jan. 2024)</li>
-    </ul>
+    <ul class="bib-list" id="awards-list"></ul>
   </section>
 
   <section id="publications">
@@ -213,11 +211,15 @@ function createBibEntry(entry) {
       color: '#e67e22'
     }));
   }
-
+  if (entry.award) {
+    badgeBox.appendChild(createBadge({
+      text: `🏆 ${entry.award}`,
+      color: '#e67e22'
+    }));
+  }
   if (entry.badges && Array.isArray(entry.badges)) {
     entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
   }
-
   info.appendChild(badgeBox);
 
   let authors = boldAuthor(entry.author || '');
@@ -246,6 +248,7 @@ fetch('publications.json')
       let sectionId = 'publications-list';
       if (type === 'unpublished') sectionId = 'unpublished-list';
       else if (type === 'conference') sectionId = 'conferences-list';
+      else if (entry.award) sectionId = 'awards-list';
 
       const el = document.getElementById(sectionId);
       if (el) el.appendChild(createBibEntry(entry));
