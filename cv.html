@@ -14,7 +14,7 @@
       margin: 0;
     }
     header, footer {
-      background-color: #010e82;
+      background-color: #004D7C;
       color: white;
       padding: 1rem 0;
       text-align: center;
@@ -195,32 +195,28 @@ function createBadge(badge) {
   return el;
 }
 
-function createBibEntry(entry) {
+function createBibEntry(entry, showBadges = true) {
   const container = document.createElement('li');
   container.classList.add('bib-entry');
 
   const info = document.createElement('div');
   info.className = 'info';
 
-  const badgeBox = document.createElement('div');
-  badgeBox.className = 'badge-container';
+  if (showBadges) {
+    const badgeBox = document.createElement('div');
+    badgeBox.className = 'badge-container';
 
-  if (entry.citation) {
-    badgeBox.appendChild(createBadge({
-      text: `📈 Cited by ${entry.citation}`,
-      color: '#e67e22'
-    }));
+    if (entry.citation) {
+      badgeBox.appendChild(createBadge({
+        text: `📈 Cited by ${entry.citation}`,
+        color: '#e67e22'
+      }));
+    }
+    if (entry.badges && Array.isArray(entry.badges)) {
+      entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
+    }
+    info.appendChild(badgeBox);
   }
-  if (entry.award) {
-    badgeBox.appendChild(createBadge({
-      text: `🏆 ${entry.award}`,
-      color: '#e67e22'
-    }));
-  }
-  if (entry.badges && Array.isArray(entry.badges)) {
-    entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
-  }
-  info.appendChild(badgeBox);
 
   let authors = boldAuthor(entry.author || '');
   let title = boldModel(entry.title || '', entry.model);
@@ -245,11 +241,26 @@ fetch('publications.json')
   .then(entries => {
     for (const entry of entries) {
       const type = (entry.type || '').toLowerCase();
-      let sectionId = 'publications-list';
-      if (type === 'unpublished') sectionId = 'unpublished-list';
-      else if (type === 'conference') sectionId = 'conferences-list';
-      else if (entry.award) sectionId = 'awards-list';
 
+      if (entry.award) {
+        const awardEl = document.createElement('li');
+        awardEl.className = 'bib-entry';
+
+        const info = document.createElement('div');
+        info.className = 'info';
+
+        const title = document.createElement('div');
+        title.innerHTML = `<strong>🏆 ${entry.award}</strong>`;
+        info.appendChild(title);
+
+        const detail = createBibEntry(entry, false);
+        info.appendChild(detail.querySelector('.info'));
+
+        awardEl.appendChild(info);
+        document.getElementById('awards-list').appendChild(awardEl);
+      }
+
+      const sectionId = (type === 'conference') ? 'conferences-list' : 'publications-list';
       const el = document.getElementById(sectionId);
       if (el) el.appendChild(createBibEntry(entry));
     }
