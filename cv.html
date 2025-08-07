@@ -2,86 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Si-Heon Joo - CV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Si-Heon Joo - Researcher</title>
-    <!-- Link to Google Fonts (fallback to Times New Roman) -->
+    <!-- Google Fonts & Basic Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Basic CSS styling -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
-        header {background-color: #004D7C; color: #fff; height: 60px; display: flex; align-items: center; justify-content: center;}
-        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem;}
-        nav a { color: #fff; margin: 0 1rem; text-decoration: none; font-weight: 500; font-size: 1.3rem; white-space: nowrap;}
+        body { font-family: 'Roboto', sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        header { background-color: #004D7C; color: white; padding: 1rem 0; text-align: center; }
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
         nav a:hover { text-decoration: underline; }
-        .about-research-container { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; max-width: 1000px; margin: 2rem auto;}
-        .about-box { background-color: #ffffff; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); flex: 0 1 65%; min-width: 300px;}
-        .research-box { background-color: #ffffff; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); flex: 0 1 25%; min-width: 300px;}
-        .container { width: 90%; max-width: 1000px; margin: 2rem auto; }
-        .hero { text-align: center; padding: 2rem 0; }
-        .hero img { width: 300px; height: 300px; border-radius: 0; object-fit: cover; margin-bottom: 1rem; }
-        .section-title { font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 2px #003478; display: inline-block; }
-        section { margin-bottom: 2rem; }
-        .research ul, .publications ul, .awards ul, .conferences ul, .research-box ul, .best ul { list-style-type: disc; margin-left: 1.5rem; }
-        .publications ul li, .conferences ul li, .best ul li strong { font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .publications ul li strong, .conferences ul li strong, .best ul li strong { font-weight: bold; font-size:1.1rem; }
-        .publications ul li em, .conferences ul li em, .best ul li em { font-style: italic; }
-        .yonsei-brand {    display: inline-flex;    align-items: center;    margin-left: 1rem;    font-weight: bold;}
-        .yonsei-logo {    width: 50px;    height: 50px;    margin-right: 0.5rem;}
-        footer { text-align: center; padding: 1rem 0; background-color: #004D7C; color: #fff; height: 60px;}
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .hero img { width: 300px; height: 300px; object-fit: cover; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.5rem; color: #004D7C; }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #003478;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #004D7C;
+            display: inline-block;
+        }
+
+        .about-research-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .about-box, .research-box {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+        }
+        .about-box { flex: 0 1 65%; }
+        .research-box { flex: 0 1 25%; }
+
+        ul { list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.7rem; }
+
+        footer { text-align: center; padding: 1rem 0; background-color: #004D7C; color: #fff; margin-top: 3rem; }
     </style>
 </head>
 <body>
-    <!-- Header with navigation -->
+
+    <!-- Header -->
     <header>
         <nav>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#awards">Awards</a>
-            <a href="#conferences">Conferences</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="cv.html">CV</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
+    <!-- Main Content -->
     <div class="container">
-        <!-- Hero section -->
+
+        <!-- Hero Section -->
         <section class="hero" id="about">
             <img src="profile_image.jpg" alt="SH_Joo">
             <h1>Si-Heon Joo (주시헌)</h1>
             <p>Intern Student | Smart Infrastructure Lab (SIL) | Yonsei University</p>
         </section>
 
-        <!-- About & Research (2-column layout) -->
+        <!-- About & Research Interests -->
         <section class="about-research-container">
-          <div class="about-box">
-            <h2 class="section-title">About Me</h2>
-            <p>I am interested in solving problems in the civil and construction engineering fields using artificial intelligence,
-  with a particular focus on effectively learning complex and hard-to-learn patterns through pattern recognition and signal processing algorithms.
-  My research aims to develop models that are better suited for real-world applications.</p>
-          </div>
-        
-          <div class="research-box">
-            <h2 class="section-title">Research Interests</h2>
-            <ul>
-              <li>Smart Infrastructure</li>
-              <li>Computer Vision</li>
-              <li>Pattern Recognition</li>
-              <li>Signal Processing</li>
-            </ul>
-          </div>
+            <div class="about-box">
+                <h2 class="section-title">About Me</h2>
+                <p>
+                    I am interested in solving problems in the civil and construction engineering fields using artificial intelligence,
+                    with a particular focus on effectively learning complex and hard-to-learn patterns through pattern recognition and signal processing algorithms.
+                    My research aims to develop models that are better suited for real-world applications.
+                </p>
+            </div>
+            <div class="research-box">
+                <h2 class="section-title">Research Interests</h2>
+                <ul>
+                    <li>Smart Infrastructure</li>
+                    <li>Computer Vision</li>
+                    <li>Pattern Recognition</li>
+                    <li>Signal Processing</li>
+                </ul>
+            </div>
         </section>
-        <!-- Awards and Honors -->
-        <section id="awards" class="awards">
+
+        <!-- Awards -->
+        <section id="awards">
             <h2 class="section-title">Awards &amp; Honors</h2>
             <ul>
                 <li><strong>Best Paper Award</strong> - <strong>Siheon Joo</strong>, Kyoungmin Lee, Stellar Choi, Haeun Jung, Seonggeon Bae. Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures, <em>International Conference on Small and Medium Business (ICSMB)</em>, Fukuoka, Japan (Jan. 2024)</li>
             </ul>
         </section>
-        
+
         <!-- Publications -->
-        <section id="publications" class="publications">
+        <section id="publications">
             <h2 class="section-title">Publications</h2>
             <ul>
                 <li><em>none</em></li>
@@ -89,7 +114,7 @@
         </section>
 
         <!-- Conferences -->
-        <section id="conferences" class="conferences">
+        <section id="conferences">
             <h2 class="section-title">Conferences</h2>
             <h3><em>(Under Graduate)</em></h3>
             <h3>Domestic</h3>
@@ -99,12 +124,12 @@
             <h3>International</h3>
             <ul>
                 <li><strong>Siheon Joo</strong>, Haeun Jung, Kyoungmin Lee, Junghyun Lee, Seonggeon Bae. CPH White-Box Cartoon GAN: A Patch-Based Style-Swap Approach, <em>IEEE ICECET</em>, Sydney, Australia (Jul. 2024), DOI: <a href="https://doi.org/10.1109/ICECET61485.2024.10698008" target="_blank">10.1109/ICECET61485.2024.10698008</a></li>
-                <li><strong>Siheon Joo</strong>, Kyoungmin Lee, Stellar Choi, Haeun Jung, Seonggeon Bae. Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures, <em>International Conference on Small and Medium Business (ICSMB)</em>, Fukuoka, Japan (Jan. 2024)</li>
+                <li><strong>Siheon Joo</strong>, Kyoungmin Lee, Stellar Choi, Haeun Jung, Seonggeon Bae. Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures, <em>ICSMB</em>, Fukuoka, Japan (Jan. 2024)</li>
                 <li><strong>Siheon Joo</strong>, Haeun Jung, Junghyun Lee, Seonggeon Bae. Style-Blend for Enhancing Color Style Transfer, <em>IWAT</em>, Jeju, Korea (May. 2024)</li>
-                <li>Kyoungmin Lee, Stellar Choi, <strong>Siheon Joo</strong>, Haeun Jung, Seonggeon Bae. A Study on High-Quality Style Transfer Using Edge-Enhanced Gaussian Smoothing Technique (EEGST) for Minimizing Perceptual Loss, <em>IEEE ICECCE</em>, Dubai, UAE (Dec. 2023), DOI:<a href="https://doi.org/10.1109/ICECCE61019.2023.10442483" target="_blank"> 10.1109/ICECCE61019.2023.10442483</a></li>
-                <li>Kyoungmin Lee, <strong>Siheon Joo</strong>, Haeun Jung, Seonggeon Bae. A Study on Enhanced Generation Algorithm Through Structure-Preserving Style Transfer with SLIC, <em>IEEE ICECET</em>, Sydney, Australia (Jul. 2024), DOI:<a href="https://doi.org/10.1109/ICECET61485.2024.10698447" target="_blank"> 10.1109/ICECET61485.2024.10698447</a></li>
-                <li>Kyoungmin Lee, <strong>Siheon Joo</strong>, Stellar Choi, Haeun Jung, Seonggeon Bae. Improving Style Transfer Model and Minimizing Artifacts through Enhanced VGG Perceptual Loss, <em>International Conference on Small and Medium Business (ICSMB)</em> Fukuoka, Japan (Jan. 2024)</li>
-                <li>Stellar Choi, <strong>Siheon Joo</strong>, Kyoungmin Lee, Haeun Jung, Seonggeon Bae. A Study on Error Improvement in Black-and-White Line Art Images Using Proposed Alpha Mask Segmentation Applied to Pix2Pix, <em>International Conference on Small and Medium Business (ICSMB)</em>, Fukuoka, Japan (Jan. 2024)</li>
+                <li>Kyoungmin Lee, Stellar Choi, <strong>Siheon Joo</strong>, Haeun Jung, Seonggeon Bae. EEGST for Minimizing Perceptual Loss, <em>IEEE ICECCE</em>, Dubai, UAE (Dec. 2023), DOI: <a href="https://doi.org/10.1109/ICECCE61019.2023.10442483" target="_blank">10.1109/ICECCE61019.2023.10442483</a></li>
+                <li>Kyoungmin Lee, <strong>Siheon Joo</strong>, Haeun Jung, Seonggeon Bae. Structure-Preserving Style Transfer with SLIC, <em>IEEE ICECET</em>, Sydney, Australia (Jul. 2024), DOI: <a href="https://doi.org/10.1109/ICECET61485.2024.10698447" target="_blank">10.1109/ICECET61485.2024.10698447</a></li>
+                <li>Kyoungmin Lee, <strong>Siheon Joo</strong>, Stellar Choi, Haeun Jung, Seonggeon Bae. Improving Style Transfer through Enhanced VGG Perceptual Loss, <em>ICSMB</em>, Fukuoka, Japan (Jan. 2024)</li>
+                <li>Stellar Choi, <strong>Siheon Joo</strong>, Kyoungmin Lee, Haeun Jung, Seonggeon Bae. Error Improvement in Line Art Using Alpha Mask Segmentation, <em>ICSMB</em>, Fukuoka, Japan (Jan. 2024)</li>
             </ul>
         </section>
 
@@ -114,13 +139,13 @@
             <p>Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></p>
             <p>GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></p>
         </section>
+
     </div>
 
     <!-- Footer -->
     <footer>
-    <p>
         &copy; 2025 Si-Heon Joo. All rights reserved.
-    </p>
-</footer>
+    </footer>
+
 </body>
 </html>
