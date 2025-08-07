@@ -14,7 +14,7 @@
       margin: 0;
     }
     header, footer {
-      background-color: #020b5c;
+      background-color: #1b1c1c;
       color: white;
       padding: 1rem 0;
       text-align: center;
@@ -173,5 +173,123 @@
   &copy; 2025 Si-Heon Joo. All rights reserved.
 </footer>
 
+<script>
+const YOUR_NAME = /Si[-\s]?Heon\s+Joo/gi;
+
+function boldAuthor(text) {
+  return text.replace(YOUR_NAME, '<strong>$&</strong>');
+}
+
+function boldModel(text, model) {
+  if (!model) return text;
+  const regex = new RegExp(`\\b(${model})\\b`, 'g');
+  return text.replace(regex, '<strong>$1</strong>');
+}
+
+function createBadge(badge) {
+  const el = badge.url ? document.createElement('a') : document.createElement('span');
+  el.className = 'badge';
+  el.textContent = badge.text;
+  el.style.backgroundColor = badge.color || '#777';
+  if (badge.url) {
+    el.href = badge.url;
+    el.target = '_blank';
+  } else {
+    el.setAttribute('disabled', 'true');
+  }
+  return el;
+}
+
+function createBibEntry(entry, showBadges = true) {
+  const container = document.createElement('li');
+  container.classList.add('bib-entry');
+
+  const info = document.createElement('div');
+  info.className = 'info';
+
+  if (showBadges) {
+    const badgeBox = document.createElement('div');
+    badgeBox.className = 'badge-container';
+
+    if (entry.citation) {
+      badgeBox.appendChild(createBadge({
+        text: `📈 Cited by ${entry.citation}`,
+        color: '#e67e22'
+      }));
+    }
+    if (entry.badges && Array.isArray(entry.badges)) {
+      entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
+    }
+    info.appendChild(badgeBox);
+  }
+
+  let authors = boldAuthor(entry.author || '');
+  let title = boldModel(entry.title || '', entry.model);
+  let line = `${authors}. <em>${title}</em>.`;
+  if (entry.journal) line += ` <em>${entry.journal}</em>`;
+  if (entry.booktitle) line += ` <em>${entry.booktitle}</em>`;
+  if (entry.year) line += ` (${entry.year})`;
+  if (entry.note) line += `. ${entry.note}`;
+  if (entry.doi) line += `. DOI: <a href="https://doi.org/${entry.doi}" target="_blank">${entry.doi}</a>`;
+
+  const lineDiv = document.createElement('div');
+  lineDiv.innerHTML = line;
+  info.appendChild(lineDiv);
+
+  container.appendChild(info);
+
+  return container;
+}
+
+fetch('publications.json')
+  .then(res => res.json())
+  .then(entries => {
+    for (const entry of entries) {
+      const type = (entry.type || '').toLowerCase();
+
+      if (entry.award) {
+        const awardEl = document.createElement('li');
+        awardEl.className = 'bib-entry';
+
+        const info = document.createElement('div');
+        info.className = 'info';
+
+        const title = document.createElement('div');
+        title.innerHTML = `<strong>🏆 ${entry.award}</strong>`;
+        info.appendChild(title);
+
+        const detail = createBibEntry(entry, false);
+        info.appendChild(detail.querySelector('.info'));
+
+        awardEl.appendChild(info);
+        document.getElementById('awards-list').appendChild(awardEl);
+      }
+
+      if (entry.SOTA) {
+        const sotaEl = document.createElement('li');
+        sotaEl.className = 'bib-entry';
+
+        const info = document.createElement('div');
+        info.className = 'info';
+
+        const title = document.createElement('div');
+        title.innerHTML = `<strong>🚀 ${entry.SOTA}</strong>`;
+        info.appendChild(title);
+
+        const detail = createBibEntry(entry, false);
+        info.appendChild(detail.querySelector('.info'));
+
+        sotaEl.appendChild(info);
+        document.getElementById('sota-list').appendChild(sotaEl);
+      }
+
+      const sectionId = (type === 'conference') ? 'conferences-list' : 'publications-list';
+      const el = document.getElementById(sectionId);
+      if (el) el.appendChild(createBibEntry(entry));
+    }
+  });
+</script>
+
 </body>
 </html>
+
