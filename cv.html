@@ -1,3 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Si-Heon Joo - CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+    }
+    header, footer {
+      background-color: #004D7C;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      color: #003478;
+      border-bottom: 2px solid #004D7C;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .bib-list {
+      list-style: square;
+      padding-left: 1.2rem;
+    }
+    .bib-list li {
+      margin-bottom: 1.5rem;
+    }
+    .bib-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .bib-entry .info {
+      flex: 1;
+    }
+    .project-button {
+      flex-shrink: 0;
+      padding: 0.4rem 0.9rem;
+      background-color: #004D7C;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .about-research-container {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      align-items: flex-start;
+    }
+    .about-box, .research-box {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+    .about-box {
+      flex: 1;
+    }
+    .research-box {
+      flex: 0 0 auto;
+    }
+    .badge-container {
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: white;
+      text-decoration: none;
+    }
+    .badge[disabled] {
+      cursor: default;
+      opacity: 0.7;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cv.html">About Me</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <section class="hero" id="about">
+    <img src="profile_image.jpg" alt="SH_Joo" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto 1rem;">
+    <h1 style="text-align: center; font-size: 2.5rem; color: #004D7C; margin-bottom: 0.2rem;">Si-Heon Joo (주시헌)</h1>
+    <p style="text-align: center; font-size: 1.5rem; margin-top: 0rem;"><strong>MS/PhD Candidate | Smart Infrastructure Lab (SIL) | Yonsei University</strong></p>
+  </section>
+
+  <section class="about-research-container">
+    <div class="about-box">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am interested in solving problems in the civil and construction engineering fields using artificial intelligence,
+        with a particular focus on effectively learning complex and hard-to-learn patterns through pattern recognition and signal processing algorithms.
+        My research aims to develop models that are better suited for real-world applications.
+      </p>
+    </div>
+    <div class="research-box">
+      <h2 class="section-title">Research Interests</h2>
+      <ul>
+        <li>Smart Infrastructure</li>
+        <li>Computer Vision</li>
+        <li>Pattern Recognition</li>
+        <li>Signal Processing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2 class="section-title">Awards &amp; Honors</h2>
+    <ul>
+      <li><strong>Best Paper Award</strong> - <strong>Siheon Joo</strong>, Kyoungmin Lee, Stellar Choi, Haeun Jung, Seonggeon Bae. Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures, <em>International Conference on Small and Medium Business (ICSMB)</em>, Fukuoka, Japan (Jan. 2024)</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+    <ul class="bib-list" id="publications-list"></ul>
+  </section>
+
+  <section id="conferences">
+    <h2 class="section-title">Conferences</h2>
+    <ul class="bib-list" id="conferences-list"></ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></p>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 Si-Heon Joo. All rights reserved.
+</footer>
+
 <script>
 const YOUR_NAME = /Si[-\s]?Heon\s+Joo/gi;
 
@@ -12,21 +188,16 @@ function boldModel(text, model) {
 }
 
 function createBadge(badge) {
-  const el = badge.url
-    ? document.createElement('a')
-    : document.createElement('span');
-
+  const el = badge.url ? document.createElement('a') : document.createElement('span');
   el.className = 'badge';
-  el.style.backgroundColor = badge.color || '#777';
   el.textContent = badge.text;
-
+  el.style.backgroundColor = badge.color || '#777';
   if (badge.url) {
     el.href = badge.url;
     el.target = '_blank';
   } else {
     el.setAttribute('disabled', 'true');
   }
-
   return el;
 }
 
@@ -37,15 +208,13 @@ function createBibEntry(entry) {
   const info = document.createElement('div');
   info.className = 'info';
 
-  // badges
   if (entry.badges && Array.isArray(entry.badges)) {
-    const badgeContainer = document.createElement('div');
-    badgeContainer.className = 'badge-container';
-    entry.badges.forEach(b => badgeContainer.appendChild(createBadge(b)));
-    info.appendChild(badgeContainer);
+    const badgeBox = document.createElement('div');
+    badgeBox.className = 'badge-container';
+    entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
+    info.appendChild(badgeBox);
   }
 
-  // publication info
   let authors = boldAuthor(entry.author || '');
   let title = boldModel(entry.title || '', entry.model);
   let line = `${authors}. <em>${title}</em>.`;
@@ -54,8 +223,8 @@ function createBibEntry(entry) {
   if (entry.year) line += ` (${entry.year})`;
   if (entry.note) line += `. ${entry.note}`;
   if (entry.doi) line += `. DOI: <a href="https://doi.org/${entry.doi}" target="_blank">${entry.doi}</a>`;
-
   info.innerHTML += `<div>${line}</div>`;
+
   container.appendChild(info);
 
   const rightBox = document.createElement('div');
@@ -99,3 +268,6 @@ fetch('publications.json')
     }
   });
 </script>
+
+</body>
+</html>
