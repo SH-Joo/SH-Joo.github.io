@@ -14,7 +14,7 @@
       margin: 0;
     }
     header, footer {
-      background-color: #010e82;
+      background-color: #1b1c1c;
       color: white;
       padding: 1rem 0;
       text-align: center;
@@ -147,6 +147,11 @@
     <ul class="bib-list" id="awards-list"></ul>
   </section>
 
+  <section id="sota">
+    <h2 class="section-title">Best Models</h2>
+    <ul class="bib-list" id="sota-list"></ul>
+  </section>
+
   <section id="publications">
     <h2 class="section-title">Publications</h2>
     <ul class="bib-list" id="publications-list"></ul>
@@ -258,6 +263,24 @@ fetch('publications.json')
 
         awardEl.appendChild(info);
         document.getElementById('awards-list').appendChild(awardEl);
+      }
+
+      if (entry.SOTA) {
+        const sotaEl = document.createElement('li');
+        sotaEl.className = 'bib-entry';
+
+        const info = document.createElement('div');
+        info.className = 'info';
+
+        const title = document.createElement('div');
+        title.innerHTML = `<strong>🚀 ${entry.SOTA}</strong>`;
+        info.appendChild(title);
+
+        const detail = createBibEntry(entry, false);
+        info.appendChild(detail.querySelector('.info'));
+
+        sotaEl.appendChild(info);
+        document.getElementById('sota-list').appendChild(sotaEl);
       }
 
       const sectionId = (type === 'conference') ? 'conferences-list' : 'publications-list';
