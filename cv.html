@@ -17,8 +17,29 @@
     .project-button { flex-shrink: 0; padding: 0.4rem 0.9rem; background-color: #004D7C; color: white; border-radius: 5px; text-decoration: none; font-weight: 500; }
     .bib-list { list-style: none; padding-left: 0; }
     .bib-list li { margin-bottom: 1rem; }
-    .about-research-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin-top: 2rem; }
-    .about-box, .research-box { background-color: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 48%; box-sizing: border-box; }
+    .about-research-container {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      align-items: flex-start;
+    }
+    .about-box {
+      flex: 1; /* 남은 공간 모두 차지 */
+      min-width: 0;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+    .research-box {
+      flex: 0 0 auto; /* 내용 크기만큼만 차지 */
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
   </style>
 </head>
 <body>
