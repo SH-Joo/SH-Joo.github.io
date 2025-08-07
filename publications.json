@@ -52,12 +52,12 @@
     "note": "Fukuoka, Japan, Jan. 2024",
     "badges": [
       {
-        "text": "🏆 Best Paper Award",
-        "color": "#ff7300"
-      },
-      {
         "text": "Under Graduate",
         "color": "#6bb0ab"
+      }, 
+      {
+        "text": "🏆 Best Paper Award",
+        "color": "#ff7300"
       }
     ]
   },
