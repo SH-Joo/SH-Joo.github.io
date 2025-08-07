@@ -32,19 +32,58 @@
 </header>
 
 <div class="container">
-  <section>
+  <section class="hero" id="about">
+    <img src="profile_image.jpg" alt="SH_Joo" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto 1rem;">
+    <h1 style="text-align: center; font-size: 2.5rem; color: #004D7C;">Si-Heon Joo (주시헌)</h1>
+    <p style="text-align: center;">MS/PhD Candidate | Smart Infrastructure Lab (SIL) | Yonsei University</p>
+  </section>
+
+  <section class="about-research-container">
+    <div class="about-box">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am interested in solving problems in the civil and construction engineering fields using artificial intelligence,
+        with a particular focus on effectively learning complex and hard-to-learn patterns through pattern recognition and signal processing algorithms.
+        My research aims to develop models that are better suited for real-world applications.
+      </p>
+    </div>
+    <div class="research-box">
+      <h2 class="section-title">Research Interests</h2>
+      <ul>
+        <li>Smart Infrastructure</li>
+        <li>Computer Vision</li>
+        <li>Pattern Recognition</li>
+        <li>Signal Processing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2 class="section-title">Awards &amp; Honors</h2>
+    <ul>
+      <li><strong>Best Paper Award</strong> - <strong>Siheon Joo</strong>, Kyoungmin Lee, Stellar Choi, Haeun Jung, Seonggeon Bae. Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures, <em>International Conference on Small and Medium Business (ICSMB)</em>, Fukuoka, Japan (Jan. 2024)</li>
+    </ul>
+  </section>
+
+  <section id="unpublished">
     <h2 class="section-title">Unpublished</h2>
-    <ul class="bib-list" id="unpublished"></ul>
+    <ul class="bib-list"></ul>
   </section>
 
-  <section>
+  <section id="publications">
     <h2 class="section-title">Publications</h2>
-    <ul class="bib-list" id="article"></ul>
+    <ul class="bib-list"></ul>
   </section>
 
-  <section>
+  <section id="conferences">
     <h2 class="section-title">Conferences</h2>
-    <ul class="bib-list" id="conference"></ul>
+    <ul class="bib-list"></ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></p>
   </section>
 </div>
 
@@ -78,6 +117,7 @@ function createBibEntry(entry) {
   if (entry.booktitle) line += ` <em>${entry.booktitle}</em>`;
   if (entry.year) line += ` (${entry.year})`;
   if (entry.note) line += `. ${entry.note}`;
+  if (entry.doi) line += `. DOI: <a href="https://doi.org/${entry.doi}" target="_blank">${entry.doi}</a>`;
 
   info.innerHTML = line;
   container.appendChild(info);
@@ -103,7 +143,11 @@ fetch('publications.bib')
 
     for (const [key, entry] of Object.entries(entries)) {
       const type = (entry.entryType || '').toLowerCase();
-      const el = document.getElementById(type);
+      let sectionId = 'publications';
+      if (type === 'unpublished') sectionId = 'unpublished';
+      else if (type === 'conference') sectionId = 'conferences';
+
+      const el = document.querySelector(`#${sectionId} .bib-list`);
       if (el) el.appendChild(createBibEntry(entry));
     }
   });
