@@ -1,7 +1,7 @@
 [
   {
     "type": "publication",
-    "author": "Siheon Joo and Seokhwan Kim and Hongjo Kim",
+    "author": "Siheon Joo, Seokhwan Kim, and Hongjo Kim",
     "title": "Frequency-Aware Crack Segmentation Network (FACS-Net) for Thin-Cracks via Topology Preservation",
     "year": "2025",
     "note": "Manuscript under review. Preprint available on SSRN",
@@ -32,7 +32,7 @@
   },
   {
     "type": "conference",
-    "author": "Siheon Joo and Haeun Jung and Kyoungmin Lee and Junghyun Lee and Seonggeon Bae",
+    "author": "Siheon Joo, Haeun Jung, Kyoungmin Lee, Junghyun Lee, and Seonggeon Bae",
     "title": "CPH White-Box Cartoon GAN: A Patch-Based Style-Swap Approach",
     "booktitle": "IEEE International Conference on Electronics, Control, and Communication Engineering Technologies (ICECET)",
     "year": "2024",
@@ -46,7 +46,7 @@
   },
   {
     "type": "conference",
-    "author": "Siheon Joo and Kyoungmin Lee and Stellar Choi and Haeun Jung and Seonggeon Bae",
+    "author": "Siheon Joo, Kyoungmin Lee, Stellar Choi, Haeun Jung, and Seonggeon Bae",
     "title": "Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures",
     "booktitle": "International Conference on Small and Medium Business (ICSMB)",
     "year": "2024",
@@ -65,7 +65,7 @@
   },
   {
     "type": "conference",
-    "author": "Siheon Joo and Haeun Jung and Junghyun Lee and Seonggeon Bae",
+    "author": "Siheon Joo, Haeun Jung, Junghyun Lee, and Seonggeon Bae",
     "title": "Style-Blend for Enhancing Color Style Transfer",
     "booktitle": "International Workshop on AI Technology (IWAT)",
     "year": "2024",
@@ -79,7 +79,7 @@
   },
   {
     "type": "conference",
-    "author": "Kyoungmin Lee and Stellar Choi and Siheon Joo and Haeun Jung and Seonggeon Bae",
+    "author": "Kyoungmin Lee, Stellar Choi, Siheon Joo, Haeun Jung, and Seonggeon Bae",
     "title": "A Study on High-Quality Style Transfer Using Edge-Enhanced Gaussian Smoothing Technique (EEGST) for Minimizing Perceptual Loss",
     "booktitle": "IEEE ICECCE",
     "year": "2023",
@@ -93,7 +93,7 @@
   },
   {
     "type": "conference",
-    "author": "Kyoungmin Lee and Siheon Joo and Haeun Jung and Seonggeon Bae",
+    "author": "Kyoungmin Lee, Siheon Joo, Haeun Jung, and Seonggeon Bae",
     "title": "A Study on Enhanced Generation Algorithm Through Structure-Preserving Style Transfer with SLIC",
     "booktitle": "IEEE ICECET",
     "year": "2024",
@@ -107,7 +107,7 @@
   },
   {
     "type": "conference",
-    "author": "Kyoungmin Lee and Siheon Joo and Stellar Choi and Haeun Jung and Seonggeon Bae",
+    "author": "Kyoungmin Lee, Siheon Joo, Stellar Choi, Haeun Jung, and Seonggeon Bae",
     "title": "Improving Style Transfer Model and Minimizing Artifacts through Enhanced VGG Perceptual Loss",
     "booktitle": "International Conference on Small and Medium Business (ICSMB)",
     "year": "2024",
@@ -121,7 +121,7 @@
   },
   {
     "type": "conference",
-    "author": "Stellar Choi and Siheon Joo and Kyoungmin Lee and Haeun Jung and Seonggeon Bae",
+    "author": "Stellar Choi, Siheon Joo, Kyoungmin Lee, Haeun Jung, and Seonggeon Bae",
     "title": "A Study on Error Improvement in Black-and-White Line Art Images Using Proposed Alpha Mask Segmentation Applied to Pix2Pix",
     "booktitle": "International Conference on Small and Medium Business (ICSMB)",
     "year": "2024",
@@ -135,7 +135,7 @@
   },
   {
     "type": "conference",
-    "author": "Kyoungmin Lee and Siheon Joo and Stellar Choi and Haeun Jung and Seonggeon Bae",
+    "author": "Kyoungmin Lee, Siheon Joo, Stellar Choi, Haeun Jung, and Seonggeon Bae",
     "title": "A Study on Reducing Checkerboard Artifacts in Style Transfer Using Gaussian Smoothing",
     "booktitle": "2023 한국인공지능학회 추계학술대회 (JKAIA)",
     "year": "2023",
