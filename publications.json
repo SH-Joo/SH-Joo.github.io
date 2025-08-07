@@ -9,13 +9,23 @@
     "project": "https://github.com/SH-Joo/FACS",
     "badges": [
       {
-        "text": "State-of-the-Art: CrackVision12K Dataset",
+        "text": "👑 State-of-the-Art: CrackVision12K Dataset",
         "color": "#192d6e",
         "url": "https://github.com/SH-Joo/FACS"
       }, 
       {
-        "text": "Under Review",
+        "text": "🔎 Under Review",
         "color": "#3c4d4c"
+      }, 
+      {
+        "text": "🔗 Project Page (github)",
+        "color": "#1b1c1c",
+        "url": "https://github.com/SH-Joo/FACS"
+      },
+      {
+        "text": "📄 Paper PDF",
+        "color": "#ff0011",
+        "url": "https://github.com/SH-Joo/FACS"
       }
     ]
   },
@@ -42,7 +52,7 @@
     "note": "Fukuoka, Japan, Jan. 2024",
     "badges": [
       {
-        "text": "Best Paper Award",
+        "text": "🏆 Best Paper Award",
         "color": "#e67e22"
       },
       {
