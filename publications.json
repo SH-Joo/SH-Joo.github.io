@@ -6,16 +6,13 @@
     "year": "2025",
     "note": "Manuscript under review. Preprint available on SSRN",
     "model": "FACS-Net",
+    "award": "State-of-the-Art: CrackVision12K Dataset",
     "project": "https://github.com/SH-Joo/FACS",
     "badges": [
       {
-        "text": "👑 State-of-the-Art: CrackVision12K Dataset",
+        "text": "👑 SOTA",
         "color": "#192d6e",
         "url": "https://github.com/SH-Joo/FACS"
-      }, 
-      {
-        "text": "🔎 Under Review",
-        "color": "#3c4d4c"
       }, 
       {
         "text": "🔗 Project Page (github)",
@@ -26,6 +23,10 @@
         "text": "📄 Paper PDF",
         "color": "#ff0011",
         "url": "https://github.com/SH-Joo/FACS"
+      },
+      {
+        "text": "🔎 Under Review",
+        "color": "#3c4d4c"
       }
     ]
   },
@@ -49,6 +50,7 @@
     "title": "Enhancing Super-Resolution: Filter Size Optimization in Deep Learning Architectures",
     "booktitle": "International Conference on Small and Medium Business (ICSMB)",
     "year": "2024",
+    "award": "Best Paper Award (ICSMB 2024)",
     "note": "Fukuoka, Japan, Jan. 2024",
     "badges": [
       {
