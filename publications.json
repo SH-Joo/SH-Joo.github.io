@@ -10,7 +10,7 @@
     "badges": [
       {
         "text": "State-of-the-Art: CrackVision12K Dataset",
-        "color": "#22e6e3",
+        "color": "#192d6e",
         "url": "https://github.com/SH-Joo/FACS"
       }, 
       {
@@ -25,7 +25,13 @@
     "title": "CPH White-Box Cartoon GAN: A Patch-Based Style-Swap Approach",
     "booktitle": "IEEE International Conference on Electronics, Control, and Communication Engineering Technologies (ICECET)",
     "year": "2024",
-    "doi": "10.1109/ICECET61485.2024.10698008"
+    "doi": "10.1109/ICECET61485.2024.10698008",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   },
   {
     "type": "conference",
@@ -36,8 +42,12 @@
     "note": "Fukuoka, Japan, Jan. 2024",
     "badges": [
       {
-        "text": "Best Paper",
+        "text": "Best Paper Award",
         "color": "#e67e22"
+      },
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
       }
     ]
   },
@@ -47,7 +57,13 @@
     "title": "Style-Blend for Enhancing Color Style Transfer",
     "booktitle": "International Workshop on AI Technology (IWAT)",
     "year": "2024",
-    "note": "Jeju, Korea, May. 2024"
+    "note": "Jeju, Korea, May. 2024",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   },
   {
     "type": "conference",
@@ -55,7 +71,13 @@
     "title": "A Study on High-Quality Style Transfer Using Edge-Enhanced Gaussian Smoothing Technique (EEGST) for Minimizing Perceptual Loss",
     "booktitle": "IEEE ICECCE",
     "year": "2023",
-    "doi": "10.1109/ICECCE61019.2023.10442483"
+    "doi": "10.1109/ICECCE61019.2023.10442483",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   },
   {
     "type": "conference",
@@ -63,7 +85,13 @@
     "title": "A Study on Enhanced Generation Algorithm Through Structure-Preserving Style Transfer with SLIC",
     "booktitle": "IEEE ICECET",
     "year": "2024",
-    "doi": "10.1109/ICECET61485.2024.10698447"
+    "doi": "10.1109/ICECET61485.2024.10698447",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   },
   {
     "type": "conference",
@@ -71,7 +99,13 @@
     "title": "Improving Style Transfer Model and Minimizing Artifacts through Enhanced VGG Perceptual Loss",
     "booktitle": "International Conference on Small and Medium Business (ICSMB)",
     "year": "2024",
-    "note": "Fukuoka, Japan"
+    "note": "Fukuoka, Japan",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   },
   {
     "type": "conference",
@@ -79,13 +113,25 @@
     "title": "A Study on Error Improvement in Black-and-White Line Art Images Using Proposed Alpha Mask Segmentation Applied to Pix2Pix",
     "booktitle": "International Conference on Small and Medium Business (ICSMB)",
     "year": "2024",
-    "note": "Fukuoka, Japan"
+    "note": "Fukuoka, Japan",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   },
   {
     "type": "conference",
     "author": "Kyoungmin Lee and Siheon Joo and Stellar Choi and Haeun Jung and Seonggeon Bae",
     "title": "A Study on Reducing Checkerboard Artifacts in Style Transfer Using Gaussian Smoothing",
     "booktitle": "2023 한국인공지능학회 추계학술대회 (JKAIA)",
-    "year": "2023"
+    "year": "2023",
+    "badges": [
+      {
+        "text": "Under Graduate",
+        "color": "#6bb0ab"
+      }
+    ]
   }
 ]
