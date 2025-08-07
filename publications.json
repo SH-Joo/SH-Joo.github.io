@@ -6,7 +6,7 @@
     "year": "2025",
     "note": "Manuscript under review. Preprint available on SSRN",
     "model": "FACS-Net",
-    "SOTA": "State-of-the-Art: CrackVision12K Dataset",
+    "SOTA": "FACS-Net (State-of-the-Art: CrackVision12K Dataset)",
     "project": "https://github.com/SH-Joo/FACS",
     "badges": [
       {
