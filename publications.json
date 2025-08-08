@@ -6,11 +6,11 @@
     "year": "2025",
     "note": "Manuscript under review. Preprint available on SSRN",
     "model": "FACS-Net",
-    "SOTA": "FACS-Net (State-of-the-Art: CrackVision12K Dataset)",
+    "SOTA": "FACS-Net - 2025 SOTA (CrackVision12K Dataset, Especially on thin Cracks)",
     "project": "https://github.com/SH-Joo/FACS",
     "badges": [
       {
-        "text": "👑 SOTA",
+        "text": "👑 SOTA (2025)",
         "color": "#192d6e",
         "url": "https://github.com/SH-Joo/FACS"
       }, 
