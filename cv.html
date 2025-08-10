@@ -12,15 +12,17 @@
       color: #333;
       line-height: 1.6;
       margin: 0;
-      padding-top: 64px;
+      padding-top: 64px; /* 고정 헤더 고려 */
     }
+    /* 고정 헤더 */
     header{
       position: fixed; top:0; left:0; width:100%;
       z-index:1000; background:#060d4d; color:#fff;
-      padding:0.5rem 2rem; display:flex; align-items:center; justify-content:space-between;
+      padding:0.5rem 1rem; display:flex; align-items:center; justify-content:space-between;
       box-shadow:0 2px 8px rgba(0,0,0,.18);
     }
     .site-title { font-weight: 700; font-size: 1.4rem; }
+    nav { padding-right: 12px; }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
@@ -30,37 +32,105 @@
     }
     nav a:hover { text-decoration: underline; }
 
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
 
-    .hero { text-align: center; margin-bottom: 1.5rem; }
-    .hero img { width: 300px; height: 300px; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto 1rem; }
-    .hero h1 { font-size: 2.2rem; color: #060d4d; margin-bottom: 0.2rem; }
+    /* 프로필 */
+    .hero {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .hero img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      color: #060d4d;
+      margin-bottom: 0.2rem;
+    }
     .hero p { font-size: 1rem; margin: 0; }
 
-    .cards-row{ display:grid; grid-template-columns: repeat(2, minmax(320px,1fr)); gap:1.25rem; margin:1.5rem 0 2rem; }
+    /* 상단 카드 */
+    .cards-row{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(320px,1fr));
+      gap:1.25rem; margin:1.5rem 0 2rem;
+    }
     @media (max-width: 820px){ .cards-row{ grid-template-columns:1fr; } }
-    .card{ background:#fff; padding:1.25rem 1.5rem; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.06); transition: transform .18s ease, box-shadow .18s ease; }
-    .card:hover{ transform: translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.09); }
-
-    .section-title{ font-size:1.6rem; color:#07306d; margin:0 0 .9rem; border-bottom: 2px solid #0a4bb3; padding-bottom: .3rem; }
+    .card{
+      background:#fff; padding:1.25rem 1.5rem; border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow:0 10px 26px rgba(0,0,0,.09);
+    }
+    .section-title {
+      font-size: 1.8rem;
+      color: #003478;
+      border-bottom: 2px solid #004D7C;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
     .mini-list{ list-style:none; padding:0; margin:0; }
-    .mini-item{ padding:.65rem .2rem; border-bottom:1px dashed #e9ecf3; cursor:pointer; transition: background-color .15s ease, padding-left .15s ease; }
+    .mini-item{
+      padding:.65rem .2rem; border-bottom:1px dashed #e9ecf3; cursor:pointer;
+      transition: background-color .15s ease, padding-left .15s ease;
+    }
     .mini-item:last-child{ border-bottom:none; }
     .mini-item:hover{ background:#f6f8ff; padding-left:.35rem; }
     .mini-title{ font-weight:700; color:#0b2e6b; line-height:1.35; }
     .mini-sub{ font-size:.92rem; color:#6a7587; margin-top:.15rem; }
 
+    /* 본문 */
     .section-block { margin-top: 2rem; }
     .bib-list { list-style: none; padding-left: 0; }
-    .bib-entry { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; border-left: 4px solid #004D7C; padding: 1rem; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); scroll-margin-top: 80px; margin-bottom: 1rem; transition: background-color 0.6s ease; }
+    .bib-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      border-left: 4px solid #004D7C;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      scroll-margin-top: 80px;
+      margin-bottom: 1rem;
+      transition: background-color 0.6s ease;
+    }
     .bib-entry .info { flex: 1; }
     .flash-highlight{ background:#f1f2d5 !important; }
-    .badge-container { margin-bottom: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500; color: white; text-decoration: none; }
+    .badge-container {
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: white;
+      text-decoration: none;
+    }
     .badge[disabled] { cursor: default; opacity: 0.7; text-decoration: none; }
   </style>
 </head>
 <body>
+
 <header>
   <div class="site-title">Si-Heon Joo</div>
   <nav>
@@ -70,12 +140,14 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
+
 <div class="container">
   <section class="hero">
     <img src="profile_image.jpg" alt="SH_Joo">
     <h1>Si-Heon Joo (주시헌)</h1>
     <p><strong>MS/PhD Candidate | Smart Infrastructure Lab (SIL) | Yonsei University</strong></p>
   </section>
+
   <div class="cards-row">
     <div class="card">
       <h2 class="section-title">Best Models</h2>
@@ -86,23 +158,125 @@
       <ul class="mini-list" id="mini-awards"></ul>
     </div>
   </div>
+
   <section id="publications" class="section-block">
     <h2 class="section-title">Publications</h2>
     <ul class="bib-list" id="publications-list"></ul>
   </section>
+
   <section id="conferences" class="section-block">
     <h2 class="section-title">Conferences</h2>
     <ul class="bib-list" id="conferences-list"></ul>
   </section>
+
   <section id="contact" class="section-block">
     <h2 class="section-title">Contact</h2>
     <p>Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></p>
   </section>
 </div>
-<footer>&copy; 2025 Si-Heon Joo. All rights reserved.</footer>
+
+<footer>
+  &copy; 2025 Si-Heon Joo. All rights reserved.
+</footer>
+
 <script>
-// JavaScript 부분은 기존과 동일
+const YOUR_NAME = /Si[-\s]?Heon\s+Joo/gi;
+function boldAuthor(text) { return text.replace(YOUR_NAME, '<strong>$&</strong>'); }
+function boldModel(text, model) {
+  if (!model) return text;
+  const regex = new RegExp(`\\b(${model})\\b`, 'g');
+  return text.replace(regex, '<strong>$1</strong>');
+}
+function createBadge(badge) {
+  const el = badge.url ? document.createElement('a') : document.createElement('span');
+  el.className = 'badge';
+  el.textContent = badge.text;
+  el.style.backgroundColor = badge.color || '#777';
+  if (badge.url) { el.href = badge.url; el.target = '_blank'; }
+  else { el.setAttribute('disabled', 'true'); }
+  return el;
+}
+function slugify(str) {
+  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+function smoothScrollToId(id){
+  const target = document.getElementById(id);
+  if(!target) return;
+  const header = document.querySelector('header');
+  const headerH = header ? header.offsetHeight : 0;
+  const rect = target.getBoundingClientRect();
+  const elH = target.offsetHeight;
+  const vh  = window.innerHeight;
+  const centerOffset = Math.max((vh - elH)/2, 20);
+  const top = window.pageYOffset + rect.top - headerH - centerOffset;
+  window.scrollTo({ top, behavior:'smooth' });
+  target.classList.remove('flash-highlight');
+  void target.offsetWidth;
+  target.classList.add('flash-highlight');
+  setTimeout(()=> target.classList.remove('flash-highlight'), 3000);
+}
+function createBibEntry(entry, showBadges = true) {
+  const container = document.createElement('li');
+  container.classList.add('bib-entry');
+  const slug = (entry.type ? entry.type.toLowerCase() : 'item') + '-' + slugify(entry.title || entry.SOTA || entry.award || '');
+  container.id = slug;
+  const info = document.createElement('div');
+  info.className = 'info';
+  if (showBadges) {
+    const badgeBox = document.createElement('div');
+    badgeBox.className = 'badge-container';
+    if (entry.citation) badgeBox.appendChild(createBadge({ text: `📈 Cited by ${entry.citation}`, color: '#e67e22' }));
+    if (entry.badges && Array.isArray(entry.badges)) entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
+    info.appendChild(badgeBox);
+  }
+  let authors = boldAuthor(entry.author || '');
+  let title = boldModel(entry.title || '', entry.model);
+  let line = `${authors}. <em>${title}</em>.`;
+  if (entry.journal) line += ` <em>${entry.journal}</em>`;
+  if (entry.booktitle) line += ` <em>${entry.booktitle}</em>`;
+  if (entry.year) line += ` (${entry.year})`;
+  if (entry.note) line += `. ${entry.note}`;
+  if (entry.doi) line += `. DOI: <a href="https://doi.org/${entry.doi}" target="_blank">${entry.doi}</a>`;
+  const lineDiv = document.createElement('div');
+  lineDiv.innerHTML = line;
+  info.appendChild(lineDiv);
+  container.appendChild(info);
+  return container;
+}
+function createMiniItem({ title, sub, anchorId }) {
+  const li = document.createElement('li');
+  li.className = 'mini-item';
+  li.innerHTML = `<div class="mini-title">${title}</div><div class="mini-sub">${sub || ''}</div>`;
+  li.addEventListener('click', () => smoothScrollToId(anchorId));
+  return li;
+}
+fetch('publications.json')
+  .then(res => res.json())
+  .then(entries => {
+    const pubsEl = document.getElementById('publications-list');
+    const confEl = document.getElementById('conferences-list');
+    const miniSota = document.getElementById('mini-sota');
+    const miniAwards = document.getElementById('mini-awards');
+    entries.forEach(entry => {
+      const type = (entry.type || '').toLowerCase();
+      const bibEl = createBibEntry(entry, true);
+      const anchorId = bibEl.id;
+      if (type === 'conference') confEl.appendChild(bibEl);
+      else pubsEl.appendChild(bibEl);
+      if (entry.SOTA) {
+        const title = entry.SOTA;
+        const sub = entry.year ? `${entry.year}` : '';
+        miniSota.appendChild(createMiniItem({ title, sub, anchorId }));
+      }
+      if (entry.award) {
+        const title = `🏆 ${entry.award}`;
+        const sub = entry.year ? `${entry.year}` : '';
+        miniAwards.appendChild(createMiniItem({ title, sub, anchorId }));
+      }
+    });
+  });
 </script>
+
 </body>
 </html>
