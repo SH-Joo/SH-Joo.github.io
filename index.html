@@ -1,90 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Si-Heon Joo - Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts & Basic Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: #f9f9f9; color: #333; }
-        header { background-color: #060d4d; color: white; padding: 1rem 0; text-align: center; }
-        nav a {
-            margin: 0 1rem;
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            font-size: 1.2rem;
-        }
-        nav a:hover { text-decoration: underline; }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .hero { text-align: center; margin-bottom: 2rem; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #004D7C; }
-        .hero p { font-size: 1.1rem; }
+<meta charset="UTF-8">
+<title>Si-Heon Joo - Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    color: #333;
+  }
+  header, footer {
+    background-color: #060d4d;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  nav a:hover { text-decoration: underline; }
 
-        .section { margin-top: 3rem; }
-        .section h2 { font-size: 1.8rem; color: #003478; margin-bottom: 1rem; border-bottom: 2px solid #004D7C; display: inline-block; }
-        .summary-box {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        footer { text-align: center; padding: 1rem 0; background-color: #060d4d; color: #fff; }
-    </style>
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  /* 메인 배너 + Best Works */
+  .banner-section {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  .banner-img {
+    flex: 1;
+    min-width: 300px;
+  }
+  .banner-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .best-works {
+    flex: 1;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    color: #003478;
+    border-bottom: 2px solid #004D7C;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .best-item {
+    margin-bottom: 1rem;
+  }
+  .best-item img {
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+  }
+  /* Ongoing Projects */
+  .projects {
+    margin-top: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .project-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  .project-item:last-child { border-bottom: none; }
+  .project-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #003478;
+  }
+  .project-meta {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* 반응형 처리 */
+  @media (max-width: 768px) {
+    .banner-section {
+      flex-direction: column;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="cv.html">About me</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cv.html">About Me</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-    <!-- Main Content -->
-    <div class="container">
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Si-Heon Joo (주시헌)</h1>
-            <p>Researcher in Smart Infrastructure & AI-powered Pattern Recognition</p>
-        </section>
-
-        <!-- Research Summary -->
-        <section class="section">
-            <h2>Research Introduction</h2>
-            <div class="summary-box">
-                <p>
-                    이 페이지는 현재 공사중입니다. 
-                    현재, CV 페이지만 작동합니다.
-                </p>
-            </div>
-        </section>
-
-        <!-- Publication Overview -->
-        <section class="section">
-            <h2>Publications Summary</h2>
-            <div class="summary-box">
-                <p>Total Publications: <strong>7</strong></p>
-                <p>International Conferences: <strong>5</strong></p>
-                <p>Domestic Conferences: <strong>1</strong></p>
-                <p>Awards: <strong>1 Best Paper Award</strong></p>
-                <!-- 추후 JS로 BibTeX 등에서 자동 집계 가능 -->
-            </div>
-        </section>
-
+<div class="container">
+  <!-- Banner + Best Works -->
+  <section class="banner-section">
+    <div class="banner-img">
+      <img src="home/banner.png" alt="Main Banner">
     </div>
+    <div class="best-works">
+      <h2 class="section-title">Best Works</h2>
+      <div id="best-works-list"></div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 Si-Heon Joo. All rights reserved.
-    </footer>
+  <!-- On Going Projects -->
+  <section class="projects">
+    <h2 class="section-title">On Going Projects</h2>
+    <div id="projects-list"></div>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 Si-Heon Joo. All rights reserved.
+</footer>
+
+<script>
+  // Load Best Works from publications.json
+  fetch('publications.json')
+    .then(res => res.json())
+    .then(data => {
+      const bestList = document.getElementById('best-works-list');
+      data.forEach(entry => {
+        if (entry.best) {
+          const div = document.createElement('div');
+          div.className = 'best-item';
+          div.innerHTML = `
+            <div><strong>${entry.best}</strong></div>
+            ${entry.banner ? `<img src="${entry.banner}" alt="Best Work Banner">` : ''}
+          `;
+          bestList.appendChild(div);
+        }
+      });
+    });
+
+  // Load On Going Projects from projects.json
+  fetch('projects.json')
+    .then(res => res.json())
+    .then(projects => {
+      const list = document.getElementById('projects-list');
+      projects.forEach(p => {
+        if (p.completed === false) {
+          const div = document.createElement('div');
+          div.className = 'project-item';
+          div.innerHTML = `
+            <div class="project-name">${p.name}</div>
+            <div class="project-meta">📅 ${p.period || ''}</div>
+            <div class="project-meta">💼 ${p.sponsor || ''}</div>
+            <div class="project-meta">🎯 ${p.role || ''}</div>
+          `;
+          list.appendChild(div);
+        }
+      });
+    });
+</script>
 
 </body>
 </html>
