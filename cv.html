@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Si-Heon Joo - CV</title>
+  <title>Si-Heon Joo - Publications</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -16,19 +16,24 @@
     header, footer {
       background-color: #060d4d;
       color: white;
-      padding: 1rem 0;
-      text-align: center;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-title {
+      font-weight: 700;
+      font-size: 1.4rem;
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: white;
       font-weight: 500;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
+
     .container {
       max-width: 1000px;
       margin: 2rem auto;
@@ -59,29 +64,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
-    .bib-entry .info {
-      flex: 1;
-    }
-    .about-research-container {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 1rem;
-      margin-top: 2rem;
-      align-items: flex-start;
-    }
-    .about-box, .research-box {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-    }
-    .about-box {
-      flex: 1;
-    }
-    .research-box {
-      flex: 0 0 auto;
-    }
+    .bib-entry .info { flex: 1; }
     .badge-container {
       margin-bottom: 0.5rem;
       display: flex;
@@ -107,6 +90,7 @@
 <body>
 
 <header>
+  <div class="site-title">Si-Heon Joo</div>
   <nav>
     <a href="index.html">Home</a>
     <a href="cv.html">Publications</a>
@@ -116,12 +100,6 @@
 </header>
 
 <div class="container">
-  <section class="hero" id="about">
-    <img src="profile_image.jpg" alt="SH_Joo" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto 1rem;">
-    <h1 style="text-align: center; font-size: 2.5rem; color: #060d4d; margin-bottom: 0.2rem;">Si-Heon Joo (주시헌)</h1>
-    <p style="text-align: center; font-size: 1rem; margin-top: 0rem;"><strong>MS/PhD Candidate | Smart Infrastructure Lab (SIL) | Yonsei University</strong></p>
-  </section>
-
   <section id="awards">
     <h2 class="section-title">Awards &amp; Honors</h2>
     <ul class="bib-list" id="awards-list"></ul>
@@ -190,12 +168,8 @@ function createBibEntry(entry, showBadges = true) {
   if (showBadges) {
     const badgeBox = document.createElement('div');
     badgeBox.className = 'badge-container';
-
     if (entry.citation) {
-      badgeBox.appendChild(createBadge({
-        text: `📈 Cited by ${entry.citation}`,
-        color: '#e67e22'
-      }));
+      badgeBox.appendChild(createBadge({ text: `📈 Cited by ${entry.citation}`, color: '#e67e22' }));
     }
     if (entry.badges && Array.isArray(entry.badges)) {
       entry.badges.forEach(b => badgeBox.appendChild(createBadge(b)));
@@ -217,7 +191,6 @@ function createBibEntry(entry, showBadges = true) {
   info.appendChild(lineDiv);
 
   container.appendChild(info);
-
   return container;
 }
 
@@ -230,17 +203,13 @@ fetch('publications.json')
       if (entry.award) {
         const awardEl = document.createElement('li');
         awardEl.className = 'bib-entry';
-
         const info = document.createElement('div');
         info.className = 'info';
-
         const title = document.createElement('div');
         title.innerHTML = `<strong>🏆 ${entry.award}</strong>`;
         info.appendChild(title);
-
         const detail = createBibEntry(entry, false);
         info.appendChild(detail.querySelector('.info'));
-
         awardEl.appendChild(info);
         document.getElementById('awards-list').appendChild(awardEl);
       }
@@ -248,17 +217,13 @@ fetch('publications.json')
       if (entry.SOTA) {
         const sotaEl = document.createElement('li');
         sotaEl.className = 'bib-entry';
-
         const info = document.createElement('div');
         info.className = 'info';
-
         const title = document.createElement('div');
         title.innerHTML = `<strong>👑 ${entry.SOTA}</strong>`;
         info.appendChild(title);
-
         const detail = createBibEntry(entry, false);
         info.appendChild(detail.querySelector('.info'));
-
         sotaEl.appendChild(info);
         document.getElementById('sota-list').appendChild(sotaEl);
       }
@@ -272,4 +237,3 @@ fetch('publications.json')
 
 </body>
 </html>
-
