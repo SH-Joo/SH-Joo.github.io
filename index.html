@@ -28,45 +28,50 @@
   nav a:hover { text-decoration: underline; }
 
   .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
 
-  /* 메인 배너 + Best Works */
-  .banner-section {
+  /* 전체 레이아웃: 배너 왼쪽, 콘텐츠 오른쪽 */
+  .main-section {
     display: flex;
-    flex-wrap: nowrap;
     gap: 2rem;
     align-items: stretch;
   }
   .banner-img {
-    flex: 1;
-    min-width: 300px;
+    flex: 2; /* 왼쪽이 더 넓게 */
+    min-width: 400px;
   }
   .banner-img img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 8px;
     object-fit: cover;
   }
-  .best-works {
+
+  /* 오른쪽 영역 (Best Works + Ongoing Projects) */
+  .side-column {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .card {
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #003478;
     border-bottom: 2px solid #004D7C;
     margin-bottom: 1rem;
     display: inline-block;
   }
+
+  /* Best Works */
   .best-item {
     margin-bottom: 1rem;
   }
@@ -75,16 +80,10 @@
     border-radius: 6px;
     margin-top: 0.5rem;
   }
+
   /* Ongoing Projects */
-  .projects {
-    margin-top: 2rem;
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
   .project-item {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     border-bottom: 1px solid #eee;
   }
   .project-item:last-child { border-bottom: none; }
@@ -100,8 +99,11 @@
 
   /* 반응형 처리 */
   @media (max-width: 768px) {
-    .banner-section {
+    .main-section {
       flex-direction: column;
+    }
+    .banner-img {
+      min-width: auto;
     }
   }
 </style>
@@ -118,21 +120,23 @@
 </header>
 
 <div class="container">
-  <!-- Banner + Best Works -->
-  <section class="banner-section">
+  <section class="main-section">
+    <!-- 배너 이미지 -->
     <div class="banner-img">
       <img src="home/banner.png" alt="Main Banner">
     </div>
-    <div class="best-works">
-      <h2 class="section-title">Best Works</h2>
-      <div id="best-works-list"></div>
-    </div>
-  </section>
 
-  <!-- On Going Projects -->
-  <section class="projects">
-    <h2 class="section-title">On Going Projects</h2>
-    <div id="projects-list"></div>
+    <!-- 오른쪽: Best Works + Ongoing Projects -->
+    <div class="side-column">
+      <div class="card">
+        <h2 class="section-title">Best Works</h2>
+        <div id="best-works-list"></div>
+      </div>
+      <div class="card">
+        <h2 class="section-title">On Going Projects</h2>
+        <div id="projects-list"></div>
+      </div>
+    </div>
   </section>
 </div>
 
