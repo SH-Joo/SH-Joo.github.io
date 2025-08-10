@@ -6,12 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
+  /* Base */
   body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
     color: #333;
   }
+
+  /* Header / Footer (테마 유지) */
   header, footer {
     background-color: #060d4d;
     color: white;
@@ -20,10 +23,8 @@
     align-items: center;
     justify-content: space-between;
   }
-  .site-title {
-    font-weight: 700;
-    font-size: 1.4rem;
-  }
+  .site-title { font-weight: 700; font-size: 1.4rem; }
+  nav { padding-right: 12px; } /* 너무 오른쪽 붙는 느낌 완화 */
   nav a {
     margin: 0 1rem;
     text-decoration: none;
@@ -33,81 +34,64 @@
   }
   nav a:hover { text-decoration: underline; }
 
+  /* Layout */
   .container {
     max-width: 1400px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
-
   .main-section {
     display: flex;
     gap: 2rem;
     align-items: stretch;
   }
   .banner-img {
-    flex: 2;
+    flex: 2;               /* 왼쪽을 크게 */
     min-width: 400px;
   }
   .banner-img img {
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
     object-fit: cover;
   }
   .side-column {
-    flex: 1;
+    flex: 1;               /* 오른쪽 칼럼 */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
+
+  /* Cards */
   .card {
     background-color: #fff;
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   }
   .section-title {
     font-size: 1.6rem;
     color: #003478;
     border-bottom: 2px solid #004D7C;
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
     display: inline-block;
   }
-  .best-item { margin-bottom: 1rem; }
-  .best-item img {
-    width: 100%;
-    border-radius: 6px;
-    margin-top: 0.5rem;
+  .about-text {
+    margin: 0;
+    line-height: 1.7;
   }
-  .project-item {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #eee;
+  .contact-list {
+    list-style: none;
+    padding: 0; margin: 0;
   }
-  .project-item:last-child { border-bottom: none; }
-  .project-name {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #003478;
-  }
-  .project-meta {
-    font-size: 0.9rem;
-    color: #555;
-  }
+  .contact-list li { margin: 0.4rem 0; }
+  .contact-list a { color: #0a4bb3; text-decoration: none; }
+  .contact-list a:hover { text-decoration: underline; }
 
-  /* About Me 블록 */
-  .about-me {
-    margin-top: 2rem;
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
-  @media (max-width: 768px) {
+  /* Responsive */
+  @media (max-width: 900px) {
     .main-section { flex-direction: column; }
     .banner-img { min-width: auto; }
-    header { flex-direction: column; }
-    nav { margin-top: 0.5rem; }
   }
 </style>
 </head>
@@ -125,78 +109,41 @@
 
 <div class="container">
   <section class="main-section">
-    <!-- 배너 이미지 -->
+    <!-- 왼쪽: 큰 배너 이미지 -->
     <div class="banner-img">
       <img src="home/banner.jpg" alt="Main Banner">
     </div>
 
-    <!-- 오른쪽: Best Works + Ongoing Projects -->
+    <!-- 오른쪽: About Me (위) + Contact (아래) -->
     <div class="side-column">
       <div class="card">
-        <h2 class="section-title">Best Works</h2>
-        <div id="best-works-list"></div>
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+          I am an MS/PhD candidate at the <strong>Smart Infrastructure Lab (SIL), Yonsei University</strong>.
+          My research focuses on AI for civil and construction engineering, particularly learning
+          complex fine-scale patterns via computer vision, pattern recognition, and signal processing.
+          I aim to design models that remain robust and useful in real-world deployments.
+        </p>
       </div>
+
       <div class="card">
-        <h2 class="section-title">On Going Projects</h2>
-        <div id="projects-list"></div>
+        <h2 class="section-title">Contact</h2>
+        <ul class="contact-list">
+          <li>✉️ Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></li>
+          <li>🐙 GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></li>
+          <!-- 필요 시 항목 추가
+          <li>🔗 Google Scholar: <a href="#" target="_blank">scholar link</a></li>
+          <li>🧪 Project Page: <a href="#" target="_blank">project link</a></li>
+          -->
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- About Me 블록 -->
-  <section class="about-me">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      I am interested in solving problems in the civil and construction engineering fields using artificial intelligence,
-      with a particular focus on effectively learning complex and hard-to-learn patterns through pattern recognition and signal processing algorithms.
-      My research aims to develop models that are better suited for real-world applications.
-    </p>
   </section>
 </div>
 
 <footer>
   &copy; 2025 Si-Heon Joo. All rights reserved.
 </footer>
-
-<script>
-  // Load Best Works from publications.json
-  fetch('publications.json')
-    .then(res => res.json())
-    .then(data => {
-      const bestList = document.getElementById('best-works-list');
-      data.forEach(entry => {
-        if (entry.best) {
-          const div = document.createElement('div');
-          div.className = 'best-item';
-          div.innerHTML = `
-            <div><strong>${entry.best}</strong></div>
-            ${entry.banner ? `<img src="${entry.banner}" alt="Best Work Banner">` : ''}
-          `;
-          bestList.appendChild(div);
-        }
-      });
-    });
-
-  // Load On Going Projects from projects.json
-  fetch('projects.json')
-    .then(res => res.json())
-    .then(projects => {
-      const list = document.getElementById('projects-list');
-      projects.forEach(p => {
-        if (p.completed === false) {
-          const div = document.createElement('div');
-          div.className = 'project-item';
-          div.innerHTML = `
-            <div class="project-name">${p.name}</div>
-            <div class="project-meta">📅 ${p.period || ''}</div>
-            <div class="project-meta">💼 ${p.sponsor || ''}</div>
-            <div class="project-meta">🎯 ${p.role || ''}</div>
-          `;
-          list.appendChild(div);
-        }
-      });
-    });
-</script>
 
 </body>
 </html>
