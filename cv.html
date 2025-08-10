@@ -21,90 +21,39 @@
       box-shadow:0 2px 8px rgba(0,0,0,.18);
     }
     .site-title { font-weight: 700; font-size: 1.4rem; }
-    nav { display:flex; gap:1rem; }
     nav a {
+      margin: 0 1rem;
       text-decoration: none;
       color: white;
       font-weight: 500;
       font-size: 1.1rem;
-      padding:0.3rem 0.6rem;
     }
     nav a:hover { text-decoration: underline; }
 
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .hero {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .hero img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto 1rem;
-    }
-    .hero h1 {
-      font-size: 2.2rem;
-      color: #060d4d;
-      margin-bottom: 0.2rem;
-    }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+
+    .hero { text-align: center; margin-bottom: 1.5rem; }
+    .hero img { width: 300px; height: 300px; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto 1rem; }
+    .hero h1 { font-size: 2.2rem; color: #060d4d; margin-bottom: 0.2rem; }
     .hero p { font-size: 1rem; margin: 0; }
 
-    .cards-row{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(320px,1fr));
-      gap:1.25rem; margin:1.5rem 0 2rem;
-    }
+    .cards-row{ display:grid; grid-template-columns: repeat(2, minmax(320px,1fr)); gap:1.25rem; margin:1.5rem 0 2rem; }
     @media (max-width: 820px){ .cards-row{ grid-template-columns:1fr; } }
-    .card{
-      background:#fff; padding:1.25rem 1.5rem; border-radius:14px;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow:0 10px 26px rgba(0,0,0,.09);
-    }
-    .section-title{
-      display:flex; align-items:center; gap:.6rem;
-      font-size:1.6rem; color:#07306d; margin:0 0 .9rem;
-      position: relative;
-    }
-    .section-title::before{
-      content:""; position:absolute; bottom:-4px; left:0;
-      width:50px; height:3px; background:#0a4bb3; border-radius:2px;
-    }
+    .card{ background:#fff; padding:1.25rem 1.5rem; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.06); transition: transform .18s ease, box-shadow .18s ease; }
+    .card:hover{ transform: translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.09); }
+
+    .section-title{ font-size:1.6rem; color:#07306d; margin:0 0 .9rem; border-bottom: 2px solid #0a4bb3; padding-bottom: .3rem; }
     .mini-list{ list-style:none; padding:0; margin:0; }
-    .mini-item{
-      padding:.65rem .2rem; border-bottom:1px dashed #e9ecf3; cursor:pointer;
-      transition: background-color .15s ease, padding-left .15s ease;
-    }
+    .mini-item{ padding:.65rem .2rem; border-bottom:1px dashed #e9ecf3; cursor:pointer; transition: background-color .15s ease, padding-left .15s ease; }
     .mini-item:last-child{ border-bottom:none; }
     .mini-item:hover{ background:#f6f8ff; padding-left:.35rem; }
     .mini-title{ font-weight:700; color:#0b2e6b; line-height:1.35; }
     .mini-sub{ font-size:.92rem; color:#6a7587; margin-top:.15rem; }
 
-    .section-block { margin-top: 2.5rem; }
+    .section-block { margin-top: 2rem; }
     .bib-list { list-style: none; padding-left: 0; }
-    .bib-entry {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      border-left: 4px solid #004D7C;
-      padding: 1rem;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      scroll-margin-top: 80px;
-      margin-bottom: 1rem;
-      transition: background-color 0.6s ease;
-    }
+    .bib-entry { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; border-left: 4px solid #004D7C; padding: 1rem; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); scroll-margin-top: 80px; margin-bottom: 1rem; transition: background-color 0.6s ease; }
+    .bib-entry .info { flex: 1; }
     .flash-highlight{ background:#f1f2d5 !important; }
     .badge-container { margin-bottom: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500; color: white; text-decoration: none; }
@@ -112,7 +61,6 @@
   </style>
 </head>
 <body>
-
 <header>
   <div class="site-title">Si-Heon Joo</div>
   <nav>
@@ -122,14 +70,12 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
-
 <div class="container">
   <section class="hero">
     <img src="profile_image.jpg" alt="SH_Joo">
     <h1>Si-Heon Joo (주시헌)</h1>
     <p><strong>MS/PhD Candidate | Smart Infrastructure Lab (SIL) | Yonsei University</strong></p>
   </section>
-
   <div class="cards-row">
     <div class="card">
       <h2 class="section-title">Best Models</h2>
@@ -140,31 +86,23 @@
       <ul class="mini-list" id="mini-awards"></ul>
     </div>
   </div>
-
   <section id="publications" class="section-block">
     <h2 class="section-title">Publications</h2>
     <ul class="bib-list" id="publications-list"></ul>
   </section>
-
   <section id="conferences" class="section-block">
     <h2 class="section-title">Conferences</h2>
     <ul class="bib-list" id="conferences-list"></ul>
   </section>
-
   <section id="contact" class="section-block">
     <h2 class="section-title">Contact</h2>
     <p>Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></p>
   </section>
 </div>
-
-<footer>
-  &copy; 2025 Si-Heon Joo. All rights reserved.
-</footer>
-
+<footer>&copy; 2025 Si-Heon Joo. All rights reserved.</footer>
 <script>
-/* 기존 JS 동일, smoothScrollToId 포함 */
+// JavaScript 부분은 기존과 동일
 </script>
-
 </body>
 </html>
