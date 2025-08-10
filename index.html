@@ -15,15 +15,21 @@
   header, footer {
     background-color: #060d4d;
     color: white;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-title {
+    font-weight: 700;
+    font-size: 1.4rem;
   }
   nav a {
     margin: 0 1rem;
     text-decoration: none;
     color: white;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   nav a:hover { text-decoration: underline; }
 
@@ -33,14 +39,13 @@
     padding: 0 1rem;
   }
 
-  /* 전체 레이아웃: 배너 왼쪽, 콘텐츠 오른쪽 */
   .main-section {
     display: flex;
     gap: 2rem;
     align-items: stretch;
   }
   .banner-img {
-    flex: 2; /* 왼쪽이 더 넓게 */
+    flex: 2;
     min-width: 400px;
   }
   .banner-img img {
@@ -49,8 +54,6 @@
     border-radius: 8px;
     object-fit: cover;
   }
-
-  /* 오른쪽 영역 (Best Works + Ongoing Projects) */
   .side-column {
     flex: 1;
     display: flex;
@@ -70,18 +73,12 @@
     margin-bottom: 1rem;
     display: inline-block;
   }
-
-  /* Best Works */
-  .best-item {
-    margin-bottom: 1rem;
-  }
+  .best-item { margin-bottom: 1rem; }
   .best-item img {
     width: 100%;
     border-radius: 6px;
     margin-top: 0.5rem;
   }
-
-  /* Ongoing Projects */
   .project-item {
     padding: 0.75rem 0;
     border-bottom: 1px solid #eee;
@@ -97,20 +94,27 @@
     color: #555;
   }
 
-  /* 반응형 처리 */
+  /* About Me 블록 */
+  .about-me {
+    margin-top: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
   @media (max-width: 768px) {
-    .main-section {
-      flex-direction: column;
-    }
-    .banner-img {
-      min-width: auto;
-    }
+    .main-section { flex-direction: column; }
+    .banner-img { min-width: auto; }
+    header { flex-direction: column; }
+    nav { margin-top: 0.5rem; }
   }
 </style>
 </head>
 <body>
 
 <header>
+  <div class="site-title">Si-Heon Joo</div>
   <nav>
     <a href="index.html">Home</a>
     <a href="cv.html">Publications</a>
@@ -137,6 +141,16 @@
         <div id="projects-list"></div>
       </div>
     </div>
+  </section>
+
+  <!-- About Me 블록 -->
+  <section class="about-me">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I am interested in solving problems in the civil and construction engineering fields using artificial intelligence,
+      with a particular focus on effectively learning complex and hard-to-learn patterns through pattern recognition and signal processing algorithms.
+      My research aims to develop models that are better suited for real-world applications.
+    </p>
   </section>
 </div>
 
