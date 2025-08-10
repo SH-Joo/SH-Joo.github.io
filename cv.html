@@ -13,8 +13,8 @@
       line-height: 1.6;
       margin: 0;
     }
-    header {
-      position: fixed; 
+    /* 고정 헤더를 쓰는 경우를 고려해 약간 여백 */
+    header, footer {
       background-color: #060d4d;
       color: white;
       padding: 0.5rem 1rem;
@@ -22,18 +22,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    footer {
-      background-color: #060d4d;
-      color: white;
-      padding: 0.5rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .site-title {
-      font-weight: 700;
-      font-size: 1.4rem;
-    }
+    .site-title { font-weight: 700; font-size: 1.4rem; }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
@@ -44,24 +33,64 @@
     nav a:hover { text-decoration: underline; }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
+    /* 프로필 */
+    .hero {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .hero img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;     /* 네모 (살짝 라운드) */
+      display: block;
+      margin: 0 auto 1rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      color: #060d4d;
+      margin-bottom: 0.2rem;
+    }
+    .hero p { font-size: 1rem; margin: 0; }
+
+    /* 상단 카드 (Best Models / Awards) */
+    .cards-row {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .card {
+      flex: 1 1 0;
+      background-color: #fff;
+      padding: 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: #003478;
       border-bottom: 2px solid #004D7C;
       display: inline-block;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
-    .bib-list {
-      list-style: none;
-      padding-left: 0;
+    .mini-list { list-style: none; padding: 0; margin: 0; }
+    .mini-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed #e6e6e6;
+      cursor: pointer;
     }
-    .bib-list li {
-      margin-bottom: 1.5rem;
-    }
+    .mini-item:last-child { border-bottom: none; }
+    .mini-title { font-weight: 600; color: #0b2e6b; }
+    .mini-sub { font-size: 0.9rem; color: #666; }
+
+    /* 본문 리스트 (공통) */
+    .section-block { margin-top: 2rem; }
+    .bib-list { list-style: none; padding-left: 0; }
     .bib-entry {
       display: flex;
       justify-content: space-between;
@@ -71,7 +100,9 @@
       padding: 1rem;
       background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      scroll-margin-top: 80px; /* 고정 헤더 고려한 앵커 오프셋 */
+      margin-bottom: 1rem;
     }
     .bib-entry .info { flex: 1; }
     .badge-container {
@@ -89,32 +120,11 @@
       color: white;
       text-decoration: none;
     }
-    .badge[disabled] {
-      cursor: default;
-      opacity: 0.7;
-      text-decoration: none;
-    }
-    /* 프로필 */
-    .hero {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .hero img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 1rem;
-    }
-    .hero h1 {
-      font-size: 2.2rem;
-      color: #060d4d;
-      margin-bottom: 0.2rem;
-    }
-    .hero p {
-      font-size: 1rem;
-      margin: 0;
+    .badge[disabled] { cursor: default; opacity: 0.7; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .cards-row { flex-direction: column; }
+      .hero img { width: 220px; height: 220px; }
     }
   </style>
 </head>
@@ -131,33 +141,37 @@
 </header>
 
 <div class="container">
+  <!-- 상단: 사진 + 간단 소개 -->
   <section class="hero">
     <img src="profile_image.jpg" alt="SH_Joo">
     <h1>Si-Heon Joo (주시헌)</h1>
     <p><strong>MS/PhD Candidate | Smart Infrastructure Lab (SIL) | Yonsei University</strong></p>
   </section>
 
-  <section id="awards">
-    <h2 class="section-title">Awards &amp; Honors</h2>
-    <ul class="bib-list" id="awards-list"></ul>
-  </section>
+  <!-- 상단 카드: Best Models / Awards (간략, 클릭 시 스크롤) -->
+  <div class="cards-row">
+    <div class="card">
+      <h2 class="section-title">Best Models</h2>
+      <ul class="mini-list" id="mini-sota"></ul>
+    </div>
+    <div class="card">
+      <h2 class="section-title">Awards &amp; Honors</h2>
+      <ul class="mini-list" id="mini-awards"></ul>
+    </div>
+  </div>
 
-  <section id="sota">
-    <h2 class="section-title">Best Models</h2>
-    <ul class="bib-list" id="sota-list"></ul>
-  </section>
-
-  <section id="publications">
+  <!-- 본문 섹션들 -->
+  <section id="publications" class="section-block">
     <h2 class="section-title">Publications</h2>
     <ul class="bib-list" id="publications-list"></ul>
   </section>
 
-  <section id="conferences">
+  <section id="conferences" class="section-block">
     <h2 class="section-title">Conferences</h2>
     <ul class="bib-list" id="conferences-list"></ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="section-block">
     <h2 class="section-title">Contact</h2>
     <p>Email: <a href="mailto:desirejsy26@gmail.com">desirejsy26@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/SH-Joo" target="_blank">github.com/SH-Joo</a></p>
@@ -169,35 +183,55 @@
 </footer>
 
 <script>
+/* 이름 볼드 처리 */
 const YOUR_NAME = /Si[-\s]?Heon\s+Joo/gi;
+function boldAuthor(text) { return text.replace(YOUR_NAME, '<strong>$&</strong>'); }
 
-function boldAuthor(text) {
-  return text.replace(YOUR_NAME, '<strong>$&</strong>');
-}
-
+/* 모델명 볼드 */
 function boldModel(text, model) {
   if (!model) return text;
   const regex = new RegExp(`\\b(${model})\\b`, 'g');
   return text.replace(regex, '<strong>$1</strong>');
 }
 
+/* 배지 만들기 */
 function createBadge(badge) {
   const el = badge.url ? document.createElement('a') : document.createElement('span');
   el.className = 'badge';
   el.textContent = badge.text;
   el.style.backgroundColor = badge.color || '#777';
-  if (badge.url) {
-    el.href = badge.url;
-    el.target = '_blank';
-  } else {
-    el.setAttribute('disabled', 'true');
-  }
+  if (badge.url) { el.href = badge.url; el.target = '_blank'; }
+  else { el.setAttribute('disabled', 'true'); }
   return el;
 }
 
+/* 슬러그 (앵커 ID) 생성 */
+function slugify(str) {
+  return String(str || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+/* 간단 스크롤 함수 (고정 헤더 고려) */
+function smoothScrollToId(id) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  const rect = target.getBoundingClientRect();
+  const header = document.querySelector('header');
+  const headerH = header ? header.offsetHeight : 0;
+  const top = window.pageYOffset + rect.top - headerH - 10;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+/* 본문 Bib 항목 생성 + 앵커 부여 */
 function createBibEntry(entry, showBadges = true) {
   const container = document.createElement('li');
   container.classList.add('bib-entry');
+
+  // 안정적인 앵커: type + title 기반
+  const slug = (entry.type ? entry.type.toLowerCase() : 'item') + '-' + slugify(entry.title || entry.SOTA || entry.award || '');
+  container.id = slug;
 
   const info = document.createElement('div');
   info.className = 'info';
@@ -231,44 +265,46 @@ function createBibEntry(entry, showBadges = true) {
   return container;
 }
 
+/* 상단 카드용 간단 항목 만들기 (클릭 → 스크롤) */
+function createMiniItem({ title, sub, anchorId }) {
+  const li = document.createElement('li');
+  li.className = 'mini-item';
+  li.innerHTML = `<div class="mini-title">${title}</div><div class="mini-sub">${sub || ''}</div>`;
+  li.addEventListener('click', () => smoothScrollToId(anchorId));
+  return li;
+}
+
 fetch('publications.json')
   .then(res => res.json())
   .then(entries => {
-    for (const entry of entries) {
+    const pubsEl = document.getElementById('publications-list');
+    const confEl = document.getElementById('conferences-list');
+    const miniSota = document.getElementById('mini-sota');
+    const miniAwards = document.getElementById('mini-awards');
+
+    entries.forEach(entry => {
       const type = (entry.type || '').toLowerCase();
+      const bibEl = createBibEntry(entry, true);
+      const anchorId = bibEl.id;
 
-      if (entry.award) {
-        const awardEl = document.createElement('li');
-        awardEl.className = 'bib-entry';
-        const info = document.createElement('div');
-        info.className = 'info';
-        const title = document.createElement('div');
-        title.innerHTML = `<strong>🏆 ${entry.award}</strong>`;
-        info.appendChild(title);
-        const detail = createBibEntry(entry, false);
-        info.appendChild(detail.querySelector('.info'));
-        awardEl.appendChild(info);
-        document.getElementById('awards-list').appendChild(awardEl);
-      }
+      // 섹션 분배
+      if (type === 'conference') confEl.appendChild(bibEl);
+      else pubsEl.appendChild(bibEl);
 
+      // 상단 Best Models (간략)
       if (entry.SOTA) {
-        const sotaEl = document.createElement('li');
-        sotaEl.className = 'bib-entry';
-        const info = document.createElement('div');
-        info.className = 'info';
-        const title = document.createElement('div');
-        title.innerHTML = `<strong>👑 ${entry.SOTA}</strong>`;
-        info.appendChild(title);
-        const detail = createBibEntry(entry, false);
-        info.appendChild(detail.querySelector('.info'));
-        sotaEl.appendChild(info);
-        document.getElementById('sota-list').appendChild(sotaEl);
+        const title = entry.SOTA;                       // 예: "FACS-Net - 2025 SOTA (...)"
+        const sub = entry.year ? `${entry.year}` : '';
+        miniSota.appendChild(createMiniItem({ title, sub, anchorId }));
       }
 
-      const sectionId = (type === 'conference') ? 'conferences-list' : 'publications-list';
-      const el = document.getElementById(sectionId);
-      if (el) el.appendChild(createBibEntry(entry));
-    }
+      // 상단 Awards (간략)
+      if (entry.award) {
+        const title = `🏆 ${entry.award}`;
+        const sub = entry.year ? `${entry.year}` : '';
+        miniAwards.appendChild(createMiniItem({ title, sub, anchorId }));
+      }
+    });
   });
 </script>
 
